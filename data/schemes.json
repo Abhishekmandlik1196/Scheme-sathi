@@ -1,0 +1,936 @@
+[
+  {
+    "id": "pm_kisan",
+    "name_en": "PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)",
+    "name_hi": "पीएम-किसान (प्रधानमंत्री किसान सम्मान निधि)",
+    "category_en": "Agriculture",
+    "category_hi": "कृषि",
+    "ministry_en": "Ministry of Agriculture & Farmers Welfare",
+    "ministry_hi": "कृषि एवं किसान कल्याण मंत्रालय",
+    "description_en": "Income support of ₹6,000 per year in three equal installments directly to the bank accounts of landholding farmer families.",
+    "description_hi": "भूमिधारक किसान परिवारों के बैंक खातों में तीन समान किस्तों में सीधे ₹6,000 प्रति वर्ष की आय सहायता।",
+    "benefit_en": "₹6,000 every year (₹2,000 every 4 months), sent directly to your bank account",
+    "benefit_hi": "हर साल ₹6,000 (हर 4 महीने में ₹2,000), सीधे आपके बैंक खाते में",
+    "benefit_amount": 6000,
+    "apply_url": "https://pmkisan.gov.in",
+    "apply_mode_en": "Online at pmkisan.gov.in or nearest CSC centre",
+    "apply_mode_hi": "pmkisan.gov.in पर ऑनलाइन या नज़दीकी CSC केंद्र पर",
+    "popularity": 10,
+    "occupation_relevance": {"farmer": 1.0},
+    "documents_en": ["Aadhaar Card", "Bank account details (passbook)", "Land ownership records (Khatauni/Khasra)", "Mobile number linked with Aadhaar"],
+    "documents_hi": ["आधार कार्ड", "बैंक खाता विवरण (पासबुक)", "भूमि रिकॉर्ड (खतौनी/खसरा)", "आधार से जुड़ा मोबाइल नंबर"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "farmer",
+           "desc_en": "You are a farmer", "desc_hi": "आप किसान हैं",
+           "fail_en": "This scheme is only for farmers", "fail_hi": "यह योजना केवल किसानों के लिए है"},
+          {"field": "land_holding", "op": "gte", "value": 0.01, "unit": "hectares",
+           "label_en": "agricultural land", "label_hi": "कृषि भूमि",
+           "desc_en": "You own cultivable land ({current} hectares)", "desc_hi": "आपके पास कृषि योग्य भूमि है ({current} हेक्टेयर)",
+           "fail_en": "You need to own cultivable land (land records in your name)", "fail_hi": "आपके पास कृषि योग्य भूमि होनी चाहिए (भूमि रिकॉर्ड आपके नाम पर)",
+           "near_miss": {"tip_en": "Tenant/sharecropper? Check state DBT schemes (e.g., Rythu Bandhu-style state schemes)", "tip_hi": "किरायेदार/बटाईदार हैं? राज्य की DBT योजनाएँ देखें"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmfby",
+    "name_en": "PM Fasal Bima Yojana (Crop Insurance)",
+    "name_hi": "प्रधानमंत्री फसल बीमा योजना",
+    "category_en": "Agriculture",
+    "category_hi": "कृषि",
+    "ministry_en": "Ministry of Agriculture & Farmers Welfare",
+    "ministry_hi": "कृषि एवं किसान कल्याण मंत्रालय",
+    "description_en": "Crop insurance at very low premium (2% Kharif, 1.5% Rabi) covering crop loss due to natural calamities, pests and diseases.",
+    "description_hi": "बहुत कम प्रीमियम (खरीफ 2%, रबी 1.5%) पर प्राकृतिक आपदाओं, कीटों और बीमारियों से फसल नुकसान का बीमा।",
+    "benefit_en": "Full crop-loss coverage; premium only 2% (Kharif) / 1.5% (Rabi). Claims up to ₹2 lakh+ depending on land & crop",
+    "benefit_hi": "पूरे फसल नुकसान का कवर; प्रीमियम केवल 2% (खरीफ) / 1.5% (रबी)। भूमि व फसल के अनुसार ₹2 लाख+ तक क्लेम",
+    "benefit_amount": 200000,
+    "apply_url": "https://pmfby.gov.in",
+    "apply_mode_en": "pmfby.gov.in, banks, or CSC centres before sowing season deadline",
+    "apply_mode_hi": "बुवाई के सीज़न की अंतिम तिथि से पहले pmfby.gov.in, बैंक या CSC केंद्र पर",
+    "popularity": 9,
+    "occupation_relevance": {"farmer": 1.0},
+    "documents_en": ["Aadhaar Card", "Land records or tenancy agreement", "Bank passbook", "Sowing certificate (if asked)"],
+    "documents_hi": ["आधार कार्ड", "भूमि रिकॉर्ड या किरायानामा", "बैंक पासबुक", "बुवाई प्रमाण पत्र (यदि माँगा जाए)"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "farmer",
+           "desc_en": "You are a farmer (tenant/sharecroppers also eligible)", "desc_hi": "आप किसान हैं (किरायेदार/बटाईदार भी पात्र)",
+           "fail_en": "This scheme is only for farmers", "fail_hi": "यह योजना केवल किसानों के लिए है"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_kusum",
+    "name_en": "PM-KUSUM (Solar Pump Scheme)",
+    "name_hi": "पीएम-कुसुम (सोलर पंप योजना)",
+    "category_en": "Agriculture / Energy",
+    "category_hi": "कृषि / ऊर्जा",
+    "ministry_en": "Ministry of New & Renewable Energy",
+    "ministry_hi": "नवीन एवं नवीकरणीय ऊर्जा मंत्रालय",
+    "description_en": "Up to 90% subsidy to install solar pumps and small solar plants on farmland — free electricity for irrigation plus income by selling surplus power.",
+    "description_hi": "खेतों में सोलर पंप व छोटे सोलर प्लांट लगाने पर 90% तक सब्सिडी — सिंचाई के लिए मुफ्त बिजली और अतिरिक्त बिजली बेचकर कमाई।",
+    "benefit_en": "60% subsidy + 30% loan on solar pumps (worth ₹3–7 lakh+); you pay only ~10%",
+    "benefit_hi": "सोलर पंप पर 60% सब्सिडी + 30% लोन (₹3–7 लाख+ मूल्य); आपको केवल ~10% देना है",
+    "benefit_amount": 500000,
+    "apply_url": "https://pmkusum.mnre.gov.in",
+    "apply_mode_en": "Apply via your state renewable energy portal (link on pmkusum.mnre.gov.in)",
+    "apply_mode_hi": "अपने राज्य के नवीकरणीय ऊर्जा पोर्टल से आवेदन करें (लिंक pmkusum.mnre.gov.in पर)",
+    "popularity": 7,
+    "occupation_relevance": {"farmer": 0.9},
+    "documents_en": ["Aadhaar Card", "Land records", "Bank details", "Electricity connection details (if any)", "Passport photo"],
+    "documents_hi": ["आधार कार्ड", "भूमि रिकॉर्ड", "बैंक विवरण", "बिजली कनेक्शन विवरण (यदि हो)", "पासपोर्ट फोटो"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "farmer",
+           "desc_en": "You are a farmer", "desc_hi": "आप किसान हैं",
+           "fail_en": "This scheme is only for farmers", "fail_hi": "यह योजना केवल किसानों के लिए है"},
+          {"field": "land_holding", "op": "gte", "value": 0.5, "unit": "hectares",
+           "label_en": "land", "label_hi": "भूमि",
+           "desc_en": "You have {current} hectares of land (minimum 0.5 needed for a solar pump)", "desc_hi": "आपके पास {current} हेक्टेयर भूमि है (सोलर पंप के लिए न्यूनतम 0.5 चाहिए)",
+           "fail_en": "You need at least 0.5 hectare of land for a solar pump", "fail_hi": "सोलर पंप के लिए कम से कम 0.5 हेक्टेयर भूमि चाहिए",
+           "near_miss": {"max_gap": 0.4, "tip_en": "Component-C (solarisation of existing grid pumps) may still suit small landholders", "tip_hi": "घटक-C (मौजूदा ग्रिड पंपों का सोलरीकरण) छोटे भूमिधारकों के लिए उपयुक्त हो सकता है"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmay_gramin",
+    "name_en": "PM Awas Yojana – Gramin (Rural Housing)",
+    "name_hi": "प्रधानमंत्री आवास योजना – ग्रामीण",
+    "category_en": "Housing",
+    "category_hi": "आवास",
+    "ministry_en": "Ministry of Rural Development",
+    "ministry_hi": "ग्रामीण विकास मंत्रालय",
+    "description_en": "Financial assistance to rural poor families living in kutcha houses to build a pucca house with basic amenities.",
+    "description_hi": "कच्चे मकानों में रहने वाले गरीब ग्रामीण परिवारों को बुनियादी सुविधाओं सहित पक्का मकान बनाने के लिए वित्तीय सहायता।",
+    "benefit_en": "₹1.20 lakh (plains) / ₹1.30 lakh (hilly areas) + 90–95 days of MGNREGA wages + toilet support",
+    "benefit_hi": "₹1.20 लाख (मैदानी) / ₹1.30 लाख (पहाड़ी क्षेत्र) + मनरेगा की 90–95 दिवसीय मज़दूरी + शौचालय सहायता",
+    "benefit_amount": 120000,
+    "apply_url": "https://pmayg.nic.in",
+    "apply_mode_en": "Through your Gram Panchayat / Block office (selection via SECC list & Gram Sabha)",
+    "apply_mode_hi": "अपनी ग्राम पंचायत / ब्लॉक कार्यालय के माध्यम से (चयन SECC सूची व ग्राम सभा से)",
+    "popularity": 9,
+    "occupation_relevance": {"farmer": 0.6, "self_employed": 0.4, "unemployed": 0.5, "homemaker": 0.5, "artisan": 0.5},
+    "documents_en": ["Aadhaar Card", "BPL/SECC proof or MGNREGA job card", "Bank account details", "Photo of current house"],
+    "documents_hi": ["आधार कार्ड", "BPL/SECC प्रमाण या मनरेगा जॉब कार्ड", "बैंक खाता विवरण", "मौजूदा मकान की फोटो"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "area_type", "op": "eq", "value": "rural",
+           "desc_en": "You live in a rural area", "desc_hi": "आप ग्रामीण क्षेत्र में रहते हैं",
+           "fail_en": "PMAY-Gramin is only for rural areas", "fail_hi": "पीएम आवास-ग्रामीण केवल ग्रामीण क्षेत्रों के लिए है",
+           "near_miss": {"tip_en": "For urban areas, PM Awas Yojana–Urban is the right scheme (check your result below!)", "tip_hi": "शहरी क्षेत्रों के लिए पीएम आवास योजना-शहरी सही योजना है (नीचे अपना परिणाम देखें!)"}},
+          {"field": "is_bpl", "op": "is_true",
+           "desc_en": "Your household is BPL/eligible under deprivation criteria", "desc_hi": "आपका परिवार BPL/वंचितता मानदंड के अंतर्गत पात्र है",
+           "fail_en": "Priority goes to BPL/SECC-listed households", "fail_hi": "प्राथमिकता BPL/SECC सूची वाले परिवारों को मिलती है",
+           "near_miss": {"tip_en": "Ask your Gram Panchayat to include you in the Awaas+ survey list", "tip_hi": "अपनी ग्राम पंचायत से आवास+ सर्वे सूची में नाम जुड़वाएँ"}},
+          {"field": "owns_pucca_house", "op": "is_false",
+           "desc_en": "You do not own a pucca house", "desc_hi": "आपके पास पक्का मकान नहीं है",
+           "fail_en": "Families already owning a pucca house are not eligible", "fail_hi": "जिन परिवारों के पास पहले से पक्का मकान है, वे पात्र नहीं हैं"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmay_urban",
+    "name_en": "PM Awas Yojana – Urban (Urban Housing / CLSS)",
+    "name_hi": "प्रधानमंत्री आवास योजना – शहरी",
+    "category_en": "Housing",
+    "category_hi": "आवास",
+    "ministry_en": "Ministry of Housing & Urban Affairs",
+    "ministry_hi": "आवास एवं शहरी मामले मंत्रालय",
+    "description_en": "Interest subsidy on home loans (CLSS) for EWS/LIG families buying or building their first pucca house in urban areas.",
+    "description_hi": "शहरी क्षेत्रों में पहला पक्का मकान खरीदने/बनाने वाले EWS/LIG परिवारों के लिए होम लोन पर ब्याज सब्सिडी (CLSS)।",
+    "benefit_en": "Interest subsidy up to ₹1.80 lakh on home loans for EWS households",
+    "benefit_hi": "EWS परिवारों के लिए होम लोन पर ₹1.80 लाख तक की ब्याज सब्सिडी",
+    "benefit_amount": 180000,
+    "apply_url": "https://pmaymis.gov.in",
+    "apply_mode_en": "Online at pmaymis.gov.in or through your bank (CLSS route)",
+    "apply_mode_hi": "pmaymis.gov.in पर ऑनलाइन या अपने बैंक के माध्यम से (CLSS मार्ग)",
+    "popularity": 9,
+    "occupation_relevance": {"employee": 0.6, "self_employed": 0.5, "business": 0.4, "artisan": 0.5, "street_vendor": 0.5, "unemployed": 0.4, "homemaker": 0.4},
+    "documents_en": ["Aadhaar Card", "Income certificate / salary slips", "Bank statements", "Affidavit of not owning a pucca house", "Property documents (for CLSS)"],
+    "documents_hi": ["आधार कार्ड", "आय प्रमाण पत्र / सैलरी स्लिप", "बैंक स्टेटमेंट", "पक्का मकान न होने का शपथ पत्र", "संपत्ति दस्तावेज़ (CLSS के लिए)"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "area_type", "op": "eq", "value": "urban",
+           "desc_en": "You live in an urban area", "desc_hi": "आप शहरी क्षेत्र में रहते हैं",
+           "fail_en": "PMAY-Urban is only for urban areas", "fail_hi": "पीएम आवास-शहरी केवल शहरी क्षेत्रों के लिए है",
+           "near_miss": {"tip_en": "For rural areas, PM Awas Yojana–Gramin is the right scheme (check your result below!)", "tip_hi": "ग्रामीण क्षेत्रों के लिए पीएम आवास योजना-ग्रामीण सही योजना है (नीचे अपना परिणाम देखें!)"}},
+          {"field": "annual_income", "op": "lte", "value": 300000, "unit": "inr",
+           "label_en": "annual family income", "label_hi": "वार्षिक पारिवारिक आय",
+           "desc_en": "Your family income ({current}) is within the EWS limit of ₹3,00,000", "desc_hi": "आपकी पारिवारिक आय ({current}) ₹3,00,000 की EWS सीमा के भीतर है",
+           "fail_en": "Your family income ({current}) is above the EWS limit of ₹3,00,000", "fail_hi": "आपकी पारिवारिक आय ({current}) ₹3,00,000 की EWS सीमा से अधिक है",
+           "near_miss": {"max_gap": 300000, "tip_en": "If income is above ₹3L, you may still qualify under LIG (₹3–6 lakh) or MIG (₹6–9 lakh) with a smaller subsidy", "tip_hi": "यदि आय ₹3 लाख से अधिक है, तो आप कम सब्सिडी के साथ LIG (₹3–6 लाख) या MIG (₹6–9 लाख) में भी पात्र हो सकते हैं"}},
+          {"field": "owns_pucca_house", "op": "is_false",
+           "desc_en": "No family member owns a pucca house", "desc_hi": "किसी भी परिवार के सदस्य के पास पक्का मकान नहीं है",
+           "fail_en": "Families already owning a pucca house anywhere in India are not eligible", "fail_hi": "देश में कहीं भी पक्का मकान रखने वाले परिवार पात्र नहीं हैं"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mudra",
+    "name_en": "PM-MUDRA Yojana (Micro Enterprise Loan)",
+    "name_hi": "पीएम-मुद्रा योजना (सूक्ष्म उद्यम लोन)",
+    "category_en": "Entrepreneurship",
+    "category_hi": "उद्यमिता",
+    "ministry_en": "Ministry of Finance",
+    "ministry_hi": "वित्त मंत्रालय",
+    "description_en": "Collateral-free loans to micro/small non-farm businesses under three slabs — Shishu (up to ₹50K), Kishore (₹50K–5L), Tarun (₹5L–10L).",
+    "description_hi": "गैर-कृषि सूक्ष्म/लघु व्यवसायों को बिना गारंटी लोन — शिशु (₹50 हज़ार तक), किशोर (₹50 हज़ार–5 लाख), तरुण (₹5–10 लाख)।",
+    "benefit_en": "Collateral-free business loan up to ₹10 lakh (Shishu ₹50K / Kishore ₹5L / Tarun ₹10L)",
+    "benefit_hi": "बिना गारंटी व्यापार लोन ₹10 लाख तक (शिशु ₹50 हज़ार / किशोर ₹5 लाख / तरुण ₹10 लाख)",
+    "benefit_amount": 1000000,
+    "apply_url": "https://www.mudramitra.in",
+    "apply_mode_en": "Apply at any bank, NBFC or MFI — or online via JanSamarth portal",
+    "apply_mode_hi": "किसी भी बैंक, NBFC या MFI में आवेदन करें — या JanSamarth पोर्टल से ऑनलाइन",
+    "popularity": 10,
+    "occupation_relevance": {"business": 1.0, "self_employed": 0.9, "artisan": 0.9, "street_vendor": 0.8},
+    "documents_en": ["Aadhaar & PAN Card", "Business plan / project report", "Address proof of business", "Bank statements (6 months)", "Passport photos"],
+    "documents_hi": ["आधार व पैन कार्ड", "बिज़नेस प्लान / प्रोजेक्ट रिपोर्ट", "व्यवसाय का पता प्रमाण", "बैंक स्टेटमेंट (6 महीने)", "पासपोर्ट फोटो"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "age", "op": "gte", "value": 18, "unit": "years",
+           "desc_en": "You are an adult ({current} years)", "desc_hi": "आप वयस्क हैं ({current} वर्ष)",
+           "fail_en": "You must be at least 18 years old", "fail_hi": "आपकी आयु कम से कम 18 वर्ष होनी चाहिए"},
+          {"field": "occupation", "op": "in", "value": ["business", "self_employed", "artisan", "street_vendor"],
+           "desc_en": "You run (or plan) a non-farm micro/small business", "desc_hi": "आप गैर-कृषि सूक्ष्म/लघु व्यवसाय चलाते हैं (या शुरू करना चाहते हैं)",
+           "fail_en": "MUDRA funds only non-farm business activities", "fail_hi": "मुद्रा केवल गैर-कृषि व्यापार गतिविधियों को फंड देता है",
+           "near_miss": {"tip_en": "Planning a side business (dairy, tailoring, repair shop, food cart)? MUDRA can fund it — even for new entrepreneurs", "tip_hi": "कोई साइड बिज़नेस (डेयरी, सिलाई, रिपेयर शॉप, फूड कार्ट) की सोच रहे हैं? मुद्रा फंड कर सकता है — नए उद्यमियों को भी"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmegp",
+    "name_en": "PMEGP (Prime Minister's Employment Generation Programme)",
+    "name_hi": "पीएमईजीपी (प्रधानमंत्री रोज़गार सृजन कार्यक्रम)",
+    "category_en": "Entrepreneurship",
+    "category_hi": "उद्यमिता",
+    "ministry_en": "Ministry of MSME",
+    "ministry_hi": "सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय",
+    "description_en": "Credit-linked subsidy for setting up NEW micro-enterprises in manufacturing or services — government gives 15–35% of project cost as subsidy.",
+    "description_hi": "विनिर्माण या सेवा क्षेत्र में नया सूक्ष्म उद्यम लगाने पर क्रेडिट-लिंक्ड सब्सिडी — सरकार प्रोजेक्ट लागत का 15–35% सब्सिडी देती है।",
+    "benefit_en": "15–35% subsidy on projects up to ₹50 lakh (manufacturing) / ₹20 lakh (services) — max subsidy ₹17.5 lakh",
+    "benefit_hi": "विनिर्माण में ₹50 लाख / सेवा में ₹20 लाख तक की परियोजना पर 15–35% सब्सिडी — अधिकतम सब्सिडी ₹17.5 लाख",
+    "benefit_amount": 1750000,
+    "apply_url": "https://www.kviconline.gov.in/pmegpeportal",
+    "apply_mode_en": "Online at kviconline.gov.in (KVIC portal)",
+    "apply_mode_hi": "kviconline.gov.in (KVIC पोर्टल) पर ऑनलाइन आवेदन",
+    "popularity": 8,
+    "occupation_relevance": {"business": 1.0, "self_employed": 0.7, "artisan": 0.7, "unemployed": 0.6},
+    "documents_en": ["Aadhaar & PAN Card", "Education certificate (8th pass)", "Project report with cost breakup", "Caste certificate (for higher subsidy)", "Rural area proof (for higher subsidy)"],
+    "documents_hi": ["आधार व पैन कार्ड", "शिक्षा प्रमाण पत्र (8वीं पास)", "लागत विवरण सहित प्रोजेक्ट रिपोर्ट", "जाति प्रमाण पत्र (अधिक सब्सिडी हेतु)", "ग्रामीण क्षेत्र प्रमाण (अधिक सब्सिडी हेतु)"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "age", "op": "gte", "value": 18, "unit": "years",
+           "desc_en": "You are above 18 years of age", "desc_hi": "आपकी आयु 18 वर्ष से अधिक है",
+           "fail_en": "You must be at least 18 years old", "fail_hi": "आपकी आयु कम से कम 18 वर्ष होनी चाहिए"},
+          {"field": "education_level", "op": "in", "value": ["8th", "10th", "12th", "graduate", "post_graduate"],
+           "desc_en": "You have passed at least 8th standard", "desc_hi": "आपने कम से कम 8वीं कक्षा पास की है",
+           "fail_en": "Minimum 8th pass is required", "fail_hi": "न्यूनतम 8वीं पास आवश्यक है",
+           "near_miss": {"tip_en": "For projects below ₹10 lakh (manufacturing) the education rule can be relaxed — ask a KVIC/DIC office", "tip_hi": "₹10 लाख से कम (विनिर्माण) परियोजनाओं के लिए शिक्षा नियम में छूट संभव — KVIC/DIC कार्यालय से पूछें"}},
+          {"field": "business_age_years", "op": "lte", "value": 1, "unit": "years",
+           "label_en": "business age", "label_hi": "व्यवसाय की आयु",
+           "desc_en": "Your unit is new (PMEGP funds only brand-new units)", "desc_hi": "आपकी इकाई नई है (PMEGP केवल बिल्कुल नई इकाइयों को फंड देता है)",
+           "fail_en": "PMEGP funds only NEW units; existing businesses are not eligible", "fail_hi": "PMEGP केवल नई इकाइयों को फंड देता है; मौजूदा व्यवसाय पात्र नहीं",
+           "near_miss": {"max_gap": 2, "tip_en": "Existing business? Use MUDRA or CGTMSE instead (see your matches)", "tip_hi": "मौजूदा व्यवसाय है? इसके बजाय MUDRA या CGTMSE देखें (आपके मैच में)"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stand_up_india",
+    "name_en": "Stand-Up India (Women & SC/ST Enterprise Loan)",
+    "name_hi": "स्टैंड-अप इंडिया (महिला व SC/ST उद्यम लोन)",
+    "category_en": "Entrepreneurship",
+    "category_hi": "उद्यमिता",
+    "ministry_en": "Ministry of Finance",
+    "ministry_hi": "वित्त मंत्रालय",
+    "description_en": "Bank loans of ₹10 lakh to ₹1 crore for SC/ST and women entrepreneurs to set up a greenfield (first-time) enterprise.",
+    "description_hi": "SC/ST और महिला उद्यमियों को ग्रीनफील्ड (पहली बार) उद्यम स्थापित करने के लिए ₹10 लाख से ₹1 करोड़ तक का बैंक लोन।",
+    "benefit_en": "Loan of ₹10 lakh – ₹1 crore for a new enterprise (composite loan incl. working capital)",
+    "benefit_hi": "नए उद्यम के लिए ₹10 लाख – ₹1 करोड़ का लोन (कार्यशील पूंजी सहित समग्र ऋण)",
+    "benefit_amount": 10000000,
+    "apply_url": "https://www.standupmitra.in",
+    "apply_mode_en": "Online at standupmitra.in or directly at a bank branch",
+    "apply_mode_hi": "standupmitra.in पर ऑनलाइन या सीधे बैंक शाखा में आवेदन",
+    "popularity": 8,
+    "occupation_relevance": {"business": 0.9, "self_employed": 0.8, "homemaker": 0.7, "unemployed": 0.6, "student": 0.4},
+    "documents_en": ["Aadhaar & PAN Card", "Caste certificate (SC/ST applicants)", "Business plan / project report", "Proof of business address", "Bank statements"],
+    "documents_hi": ["आधार व पैन कार्ड", "जाति प्रमाण पत्र (SC/ST आवेदकों हेतु)", "बिज़नेस प्लान / प्रोजेक्ट रिपोर्ट", "व्यवसाय पता प्रमाण", "बैंक स्टेटमेंट"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "age", "op": "gte", "value": 18, "unit": "years",
+           "desc_en": "You are above 18 years of age", "desc_hi": "आपकी आयु 18 वर्ष से अधिक है",
+           "fail_en": "You must be at least 18 years old", "fail_hi": "आपकी आयु कम से कम 18 वर्ष होनी चाहिए"}
+        ]
+      },
+      {
+        "logic": "any",
+        "rules": [
+          {"field": "gender", "op": "eq", "value": "female",
+           "desc_en": "You are a woman entrepreneur", "desc_hi": "आप महिला उद्यमी हैं",
+           "fail_en": "Applicant is not a woman", "fail_hi": "आवेदक महिला नहीं हैं",
+           "near_miss": {"tip_en": "A woman holding 51%+ stake in the enterprise makes the unit eligible", "tip_hi": "उद्यम में 51%+ हिस्सेदारी वाली महिला होने से इकाई पात्र बन जाती है"}},
+          {"field": "category", "op": "in", "value": ["sc", "st"],
+           "desc_en": "You belong to SC/ST category", "desc_hi": "आप SC/ST वर्ग से हैं",
+           "fail_en": "Applicant does not belong to SC/ST", "fail_hi": "आवेदक SC/ST वर्ग से नहीं हैं",
+           "near_miss": {"tip_en": "An SC/ST partner holding 51%+ stake makes the enterprise eligible", "tip_hi": "51%+ हिस्सेदारी वाला SC/ST साझीदार होने से उद्यम पात्र बन जाता है"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cgtmse",
+    "name_en": "CGTMSE (Collateral-Free Loan Guarantee for MSMEs)",
+    "name_hi": "सीजीटीएमएसई (एमएसएमई के लिए बिना गारंटी लोन गारंटी)",
+    "category_en": "Entrepreneurship",
+    "category_hi": "उद्यमिता",
+    "ministry_en": "Ministry of MSME",
+    "ministry_hi": "सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय",
+    "description_en": "Government guarantee cover so banks give MSMEs loans WITHOUT any collateral security or third-party guarantee.",
+    "description_hi": "सरकारी गारंटी कवर जिससे बैंक MSME को बिना किसी गारंटी या संपत्ति गिरवी रखे लोन देते हैं।",
+    "benefit_en": "Credit guarantee on loans up to ₹5 crore — no collateral needed",
+    "benefit_hi": "₹5 करोड़ तक के लोन पर क्रेडिट गारंटी — कोई गारंटी/ज़मानत नहीं चाहिए",
+    "benefit_amount": 5000000,
+    "apply_url": "https://www.cgtmse.in",
+    "apply_mode_en": "Ask your bank to sanction your MSME loan under CGTMSE cover",
+    "apply_mode_hi": "अपने बैंक से CGTMSE कवर में MSME लोन स्वीकृत करवाएँ",
+    "popularity": 6,
+    "occupation_relevance": {"business": 1.0, "self_employed": 0.8},
+    "documents_en": ["Udyam Registration", "Project report", "Business financials / ITR", "Bank statements", "KYC documents"],
+    "documents_hi": ["उद्यम पंजीकरण", "प्रोजेक्ट रिपोर्ट", "व्यवसाय की वित्तीय जानकारी / ITR", "बैंक स्टेटमेंट", "KYC दस्तावेज़"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "in", "value": ["business", "self_employed"],
+           "desc_en": "You run (or are starting) an MSME business", "desc_hi": "आप MSME व्यवसाय चलाते हैं (या शुरू कर रहे हैं)",
+           "fail_en": "CGTMSE is only for MSME business loans", "fail_hi": "CGTMSE केवल MSME व्यापार लोन के लिए है"},
+          {"field": "age", "op": "gte", "value": 18, "unit": "years",
+           "desc_en": "You are an adult", "desc_hi": "आप वयस्क हैं",
+           "fail_en": "You must be at least 18 years old", "fail_hi": "आपकी आयु कम से कम 18 वर्ष होनी चाहिए"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sisf",
+    "name_en": "Startup India Seed Fund Scheme",
+    "name_hi": "स्टार्टअप इंडिया सीड फंड योजना",
+    "category_en": "Entrepreneurship / Startups",
+    "category_hi": "उद्यमिता / स्टार्टअप",
+    "ministry_en": "DPIIT, Ministry of Commerce & Industry",
+    "ministry_hi": "DPIIT, वाणिज्य एवं उद्योग मंत्रालय",
+    "description_en": "Early-stage funding (up to ₹20 lakh grant / ₹50 lakh investment) for DPIIT-recognised startups for prototype, product testing and market entry.",
+    "description_hi": "DPIIT मान्यता प्राप्त स्टार्टअप्स को प्रोटोटाइप, उत्पाद परीक्षण और बाज़ार प्रवेश के लिए प्रारंभिक फंडिंग (₹20 लाख तक अनुदान / ₹50 लाख तक निवेश)।",
+    "benefit_en": "Up to ₹20 lakh as grant (prototype/testing) or ₹50 lakh as investment for market entry",
+    "benefit_hi": "प्रोटोटाइप/परीक्षण के लिए ₹20 लाख तक अनुदान या बाज़ार प्रवेश के लिए ₹50 लाख तक निवेश",
+    "benefit_amount": 2000000,
+    "apply_url": "https://seedfund.startupindia.gov.in",
+    "apply_mode_en": "Online at seedfund.startupindia.gov.in (DPIIT recognition required first)",
+    "apply_mode_hi": "seedfund.startupindia.gov.in पर ऑनलाइन (पहले DPIIT मान्यता आवश्यक)",
+    "popularity": 7,
+    "occupation_relevance": {"business": 1.0, "student": 0.5},
+    "documents_en": ["DPIIT startup recognition certificate", "Certificate of incorporation", "Pitch deck / business plan", "Proposed use of funds", "Team details"],
+    "documents_hi": ["DPIIT स्टार्टअप मान्यता प्रमाणपत्र", "निगमन प्रमाणपत्र", "पिच डेक / बिज़नेस प्लान", "फंड उपयोग का प्रस्ताव", "टीम विवरण"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "business",
+           "desc_en": "You are building a business/startup", "desc_hi": "आप एक व्यवसाय/स्टार्टअप बना रहे हैं",
+           "fail_en": "Only startups/businesses can apply", "fail_hi": "केवल स्टार्टअप/व्यवसाय ही आवेदन कर सकते हैं"},
+          {"field": "business_age_years", "op": "lte", "value": 2, "unit": "years",
+           "label_en": "business age", "label_hi": "व्यवसाय की आयु",
+           "desc_en": "Your venture is less than 2 years old", "desc_hi": "आपका उद्यम 2 वर्ष से कम पुराना है",
+           "fail_en": "Startup must be incorporated less than 2 years ago", "fail_hi": "स्टार्टअप 2 वर्ष से कम समय पहले पंजीकृत होना चाहिए",
+           "near_miss": {"max_gap": 1, "tip_en": "Startups under 10 years old can still get DPIIT recognition + tax holidays + easier compliance", "tip_hi": "10 वर्ष से कम पुराने स्टार्टअप को भी DPIIT मान्यता + कर छुट + आसान अनुपालन मिल सकता है"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_vishwakarma",
+    "name_en": "PM Vishwakarma (Artisans & Craftspeople)",
+    "name_hi": "पीएम विश्वकर्मा (शिल्पकार और कारीगर)",
+    "category_en": "Skill & Enterprise",
+    "category_hi": "कौशल और उद्यमिता",
+    "ministry_en": "Ministry of MSME",
+    "ministry_hi": "सूक्ष्म, लघु और मध्यम उद्यम मंत्रालय",
+    "description_en": "Support for traditional artisans in 18 trades (carpenter, blacksmith, potter, tailor, goldsmith etc.) — training, toolkit and cheap loans.",
+    "description_hi": "18 पारंपरिक कारीगरियों (बढ़ई, लोहार, कुम्हार, दर्जी, सुनार आदि) के कारीगरों के लिए सहायता — प्रशिक्षण, टूलकिट और सस्ता लोन।",
+    "benefit_en": "₹15,000 toolkit grant + ₹500/day training stipend + loans up to ₹3 lakh at 5% interest",
+    "benefit_hi": "₹15,000 टूलकिट अनुदान + प्रशिक्षण में ₹500/दिन + 5% ब्याज पर ₹3 लाख तक लोन",
+    "benefit_amount": 340000,
+    "apply_url": "https://pmvishwakarma.gov.in",
+    "apply_mode_en": "Register at nearest CSC centre or pmvishwakarma.gov.in",
+    "apply_mode_hi": "नज़दीकी CSC केंद्र या pmvishwakarma.gov.in पर पंजीकरण करें",
+    "popularity": 7,
+    "occupation_relevance": {"artisan": 1.0, "self_employed": 0.5},
+    "documents_en": ["Aadhaar Card", "Mobile number", "Bank details", "Proof of trade (self-declaration works at CSC)"],
+    "documents_hi": ["आधार कार्ड", "मोबाइल नंबर", "बैंक विवरण", "कारीगरी का प्रमाण (CSC पर स्व-घोषणा चलेगी)"],
+    "rule_groups": [
+      {
+        "logic": "any",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "artisan",
+           "desc_en": "You are a traditional artisan/craftsperson", "desc_hi": "आप पारंपरिक कारीगर/शिल्पकार हैं",
+           "fail_en": "Only traditional artisans in 18 listed trades qualify", "fail_hi": "केवल 18 सूचीबद्ध कारीगरियों के पारंपरिक कारीगर पात्र हैं"},
+          {"field": "special", "op": "contains", "value": "traditional_artisan",
+           "desc_en": "You practise a traditional craft", "desc_hi": "आप पारंपरिक शिल्प का कार्य करते हैं",
+           "fail_en": "No traditional craft indicated", "fail_hi": "कोई पारंपरिक शिल्प नहीं बताया गया"}
+        ]
+      },
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "age", "op": "gte", "value": 18, "unit": "years",
+           "desc_en": "You are above 18 years of age", "desc_hi": "आपकी आयु 18 वर्ष से अधिक है",
+           "fail_en": "You must be at least 18 years old", "fail_hi": "आपकी आयु कम से कम 18 वर्ष होनी चाहिए"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_svanidhi",
+    "name_en": "PM SVANidhi (Street Vendor Loan)",
+    "name_hi": "पीएम स्वनिधि (स्ट्रीट वेंडर लोन)",
+    "category_en": "Micro Finance",
+    "category_hi": "सूक्ष्म वित्त",
+    "ministry_en": "Ministry of Housing & Urban Affairs",
+    "ministry_hi": "आवास एवं शहरी मामले मंत्रालय",
+    "description_en": "Working-capital loans for street vendors — ₹10,000 first, rising to ₹20,000 and ₹50,000 on good repayment, with cashback on digital transactions.",
+    "description_hi": "स्ट्रीट वेंडर्स के लिए कार्यशील पूंजी लोन — पहले ₹10,000, अच्छी भरपाई पर ₹20,000 और ₹50,000 तक, डिजिटल लेनदेन पर कैशबैक।",
+    "benefit_en": "Collateral-free loan ₹10,000 → ₹20,000 → ₹50,000 in cycles + 7% interest subsidy + digital cashback",
+    "benefit_hi": "चक्रों में बिना गारंटी लोन ₹10,000 → ₹20,000 → ₹50,000 + 7% ब्याज सब्सिडी + डिजिटल कैशबैक",
+    "benefit_amount": 50000,
+    "apply_url": "https://pmsvanidhi.mohua.gov.in",
+    "apply_mode_en": "Online at pmsvanidhi.mohua.gov.in, via a bank, or at a CSC",
+    "apply_mode_hi": "pmsvanidhi.mohua.gov.in, बैंक या CSC केंद्र से आवेदन",
+    "popularity": 7,
+    "occupation_relevance": {"street_vendor": 1.0},
+    "documents_en": ["Aadhaar Card", "Certificate of Vending / ID card / ULB survey proof (or letter of recommendation)", "Bank account details", "Mobile number"],
+    "documents_hi": ["आधार कार्ड", "वेंडिंग प्रमाणपत्र / आईडी कार्ड / ULB सर्वे प्रमाण (या अनुशंसा पत्र)", "बैंक खाता विवरण", "मोबाइल नंबर"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "street_vendor",
+           "desc_en": "You are a street vendor (hawker/thela/cart/rebari)", "desc_hi": "आप स्ट्रीट वेंडर हैं (फेरीवाला/ठेला/गाड़ी)",
+           "fail_en": "PM SVANidhi is only for street vendors", "fail_hi": "पीएम स्वनिधि केवल स्ट्रीट वेंडर्स के लिए है"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nsp",
+    "name_en": "National Scholarship Portal Schemes",
+    "name_hi": "राष्ट्रीय छात्रवृत्ति पोर्टल योजनाएँ",
+    "category_en": "Education",
+    "category_hi": "शिक्षा",
+    "ministry_en": "Multiple Ministries (via scholarships.gov.in)",
+    "ministry_hi": "विभिन्न मंत्रालय (scholarships.gov.in के माध्यम से)",
+    "description_en": "One portal for dozens of central scholarships for school & college students — merit-cum-means, top-class education, and ministry-specific schemes.",
+    "description_hi": "विद्यालय व महाविद्यालय के छात्रों के लिए दर्जनों केंद्रीय छात्रवृत्तियों का एक ही पोर्टल — मेरिट-कम-मीन्स, टॉप-क्लास शिक्षा और मंत्रालय-विशिष्ट योजनाएँ।",
+    "benefit_en": "₹10,000–₹2,00,000 per year (tuition + maintenance), depending on the scheme",
+    "benefit_hi": "योजना के अनुसार प्रति वर्ष ₹10,000–₹2,00,000 (शिक्षण शुल्क + निर्वाह भत्ता)",
+    "benefit_amount": 50000,
+    "apply_url": "https://scholarships.gov.in",
+    "apply_mode_en": "Online at scholarships.gov.in (one-time registration, fresh/renewal each year)",
+    "apply_mode_hi": "scholarships.gov.in पर ऑनलाइन (एक बार पंजीकरण, हर वर्ष नवीन/नवीनीकरण आवेदन)",
+    "popularity": 9,
+    "occupation_relevance": {"student": 1.0},
+    "documents_en": ["Aadhaar Card", "Income certificate", "Previous exam marksheet", "Institution verification", "Bank account (in student's name)", "Caste certificate (if applicable)"],
+    "documents_hi": ["आधार कार्ड", "आय प्रमाण पत्र", "पिछली परीक्षा की मार्कशीट", "संस्था सत्यापन", "बैंक खाता (छात्र के नाम)", "जाति प्रमाण पत्र (यदि लागू)"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "student",
+           "desc_en": "You are a student", "desc_hi": "आप छात्र/छात्रा हैं",
+           "fail_en": "Scholarships are for students only", "fail_hi": "छात्रवृत्ति केवल छात्रों के लिए है"},
+          {"field": "annual_income", "op": "lte", "value": 250000, "unit": "inr",
+           "label_en": "family income", "label_hi": "पारिवारिक आय",
+           "desc_en": "Your family income ({current}) is within ₹2.5 lakh", "desc_hi": "आपकी पारिवारिक आय ({current}) ₹2.5 लाख के भीतर है",
+           "fail_en": "Your family income ({current}) exceeds ₹2.5 lakh", "fail_hi": "आपकी पारिवारिक आय ({current}) ₹2.5 लाख से अधिक है",
+           "near_miss": {"max_gap": 200000, "tip_en": "Some merit-based and state scholarships have higher (₹4.5L–₹8L) income limits — check scholarships.gov.in filters", "tip_hi": "कुछ मेरिट-आधारित और राज्य छात्रवृत्तियों की आय सीमा अधिक (₹4.5–8 लाख) है — scholarships.gov.in के फ़िल्टर देखें"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "postmatric_sc",
+    "name_en": "Post-Matric Scholarship (SC Students)",
+    "name_hi": "पोस्ट-मैट्रिक छात्रवृत्ति (SC छात्र)",
+    "category_en": "Education",
+    "category_hi": "शिक्षा",
+    "ministry_en": "Ministry of Social Justice & Empowerment",
+    "ministry_hi": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
+    "description_en": "Full maintenance allowance + fee support for SC students studying in Class 11 and above, including college and professional courses.",
+    "description_hi": "कक्षा 11 और उससे ऊपर (कॉलेज और प्रोफेशनल कोर्स सहित) पढ़ने वाले SC छात्रों के लिए पूर्ण निर्वाह भत्ता + फीस सहायता।",
+    "benefit_en": "Compulsory fees reimbursed + maintenance allowance ₹230–₹1,200/month (day scholar/hosteller)",
+    "benefit_hi": "अनिवार्य फीस प्रतिपूर्ति + निर्वाह भत्ता ₹230–₹1,200/माह (डे स्कॉलर/हॉस्टलर)",
+    "benefit_amount": 30000,
+    "apply_url": "https://scholarships.gov.in",
+    "apply_mode_en": "Online via National Scholarship Portal with institute verification",
+    "apply_mode_hi": "संस्था सत्यापन के साथ राष्ट्रीय छात्रवृत्ति पोर्टल से ऑनलाइन",
+    "popularity": 8,
+    "occupation_relevance": {"student": 1.0},
+    "documents_en": ["Caste (SC) certificate", "Income certificate", "Class 10 marksheet onwards", "Aadhaar Card", "Bank account details", "Bonafide certificate from institution"],
+    "documents_hi": ["जाति (SC) प्रमाण पत्र", "आय प्रमाण पत्र", "कक्षा 10 से आगे की मार्कशीट", "आधार कार्ड", "बैंक खाता विवरण", "संस्था का बोनाफाइड प्रमाण पत्र"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "student",
+           "desc_en": "You are a student", "desc_hi": "आप छात्र/छात्रा हैं",
+           "fail_en": "Only currently studying students are eligible", "fail_hi": "केवल वर्तमान में पढ़ने वाले छात्र पात्र हैं"},
+          {"field": "category", "op": "eq", "value": "sc",
+           "desc_en": "You belong to the SC category", "desc_hi": "आप SC वर्ग से हैं",
+           "fail_en": "This scholarship is for SC students only", "fail_hi": "यह छात्रवृत्ति केवल SC छात्रों के लिए है"},
+          {"field": "annual_income", "op": "lte", "value": 250000, "unit": "inr",
+           "label_en": "family income", "label_hi": "पारिवारिक आय",
+           "desc_en": "Your family income ({current}) is within ₹2.5 lakh", "desc_hi": "आपकी पारिवारिक आय ({current}) ₹2.5 लाख के भीतर है",
+           "fail_en": "Your family income ({current}) exceeds the ₹2.5 lakh ceiling", "fail_hi": "आपकी पारिवारिक आय ({current}) ₹2.5 लाख की सीमा से अधिक है",
+           "near_miss": {"max_gap": 200000, "tip_en": "Check Top Class Education for SC (₹8L limit, premier institutes) or your state's own SC scholarship", "tip_hi": "Top Class Education for SC (₹8 लाख सीमा, प्रीमियर संस्थान) या अपने राज्य की SC छात्रवृत्ति देखें"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "postmatric_obc",
+    "name_en": "Post-Matric Scholarship (OBC Students)",
+    "name_hi": "पोस्ट-मैट्रिक छात्रवृत्ति (OBC छात्र)",
+    "category_en": "Education",
+    "category_hi": "शिक्षा",
+    "ministry_en": "Ministry of Social Justice & Empowerment",
+    "ministry_hi": "सामाजिक न्याय एवं अधिकारिता मंत्रालय",
+    "description_en": "Maintenance allowance and fee support for OBC students studying beyond Class 10.",
+    "description_hi": "कक्षा 10 के बाद पढ़ने वाले OBC छात्रों के लिए निर्वाह भत्ता और फीस सहायता।",
+    "benefit_en": "Maintenance allowance + reader/charges support (approx ₹10,000–₹20,000/year)",
+    "benefit_hi": "निर्वाह भत्ता + रीडर/शुल्क सहायता (लगभग ₹10,000–₹20,000/वर्ष)",
+    "benefit_amount": 15000,
+    "apply_url": "https://scholarships.gov.in",
+    "apply_mode_en": "Online via National Scholarship Portal; many states run parallel OBC schemes",
+    "apply_mode_hi": "राष्ट्रीय छात्रवृत्ति पोर्टल से ऑनलाइन; कई राज्य अपनी OBC योजनाएँ भी चलाते हैं",
+    "popularity": 8,
+    "occupation_relevance": {"student": 1.0},
+    "documents_en": ["OBC (non-creamy layer) certificate", "Income certificate", "Marksheets", "Aadhaar Card", "Bank account details"],
+    "documents_hi": ["OBC (नॉन-क्रीमी लेयर) प्रमाण पत्र", "आय प्रमाण पत्र", "मार्कशीट्स", "आधार कार्ड", "बैंक खाता विवरण"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "occupation", "op": "eq", "value": "student",
+           "desc_en": "You are a student", "desc_hi": "आप छात्र/छात्रा हैं",
+           "fail_en": "Only currently studying students are eligible", "fail_hi": "केवल वर्तमान में पढ़ने वाले छात्र पात्र हैं"},
+          {"field": "category", "op": "eq", "value": "obc",
+           "desc_en": "You belong to the OBC (non-creamy layer) category", "desc_hi": "आप OBC (नॉन-क्रीमी लेयर) वर्ग से हैं",
+           "fail_en": "This scholarship is for OBC students only", "fail_hi": "यह छात्रवृत्ति केवल OBC छात्रों के लिए है"},
+          {"field": "annual_income", "op": "lte", "value": 250000, "unit": "inr",
+           "label_en": "family income", "label_hi": "पारिवारिक आय",
+           "desc_en": "Your family income ({current}) is within ₹2.5 lakh", "desc_hi": "आपकी पारिवारिक आय ({current}) ₹2.5 लाख के भीतर है",
+           "fail_en": "Your family income ({current}) exceeds the ₹2.5 lakh ceiling", "fail_hi": "आपकी पारिवारिक आय ({current}) ₹2.5 लाख की सीमा से अधिक है",
+           "near_miss": {"max_gap": 200000, "tip_en": "Check PM-YASASVI (OBC/EBC/DNT) schemes — some allow income up to ₹2.5–4.5 lakh", "tip_hi": "PM-YASASVI (OBC/EBC/DNT) योजनाएँ देखें — कुछ में आय सीमा ₹2.5–4.5 लाख तक है"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ssy",
+    "name_en": "Sukanya Samriddhi Yojana (Girl Child Savings)",
+    "name_hi": "सुकन्या समृद्धि योजना (बालिका बचत)",
+    "category_en": "Savings / Girl Child",
+    "category_hi": "बचत / बालिका",
+    "ministry_en": "Ministry of Finance",
+    "ministry_hi": "वित्त मंत्रालय",
+    "description_en": "Highest-interest small savings account for a girl child (opened by parents before she turns 10). Triple tax benefit and ~8.2% interest.",
+    "description_hi": "बालिका के लिए सबसे अधिक ब्याज वाला छोटी बचत खाता (माता-पिता 10 वर्ष की आयु से पहले खोल सकते हैं)। ट्रिपल टैक्स लाभ और ~8.2% ब्याज।",
+    "benefit_en": "~8.2% interest (highest among small savings) + EEE tax exemption; deposit ₹250–₹1.5 lakh/year",
+    "benefit_hi": "~8.2% ब्याज (छोटी बचत योजनाओं में सबसे अधिक) + EEE कर छूट; ₹250–₹1.5 लाख/वर्ष जमा करें",
+    "benefit_amount": 150000,
+    "apply_url": "https://www.indiapost.gov.in",
+    "apply_mode_en": "At any post office or authorised bank branch",
+    "apply_mode_hi": "किसी भी डाकघर या अधिकृत बैंक शाखा में",
+    "popularity": 8,
+    "occupation_relevance": {},
+    "documents_en": ["Girl's birth certificate", "Parent/guardian Aadhaar & PAN", "Address proof", "Passport photos"],
+    "documents_hi": ["बालिका का जन्म प्रमाण पत्र", "माता-पिता/अभिभावक के आधार व पैन", "पता प्रमाण", "पासपोर्ट फोटो"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "special", "op": "contains", "value": "daughter_under_10",
+           "desc_en": "You have a daughter below 10 years (account opens in her name)", "desc_hi": "आपकी 10 वर्ष से कम आयु की बेटी है (खाता उसके नाम खुलता है)",
+           "fail_en": "This account is for a girl child below 10 years", "fail_hi": "यह खाता 10 वर्ष से कम आयु की बालिका के लिए है",
+           "near_miss": {"tip_en": "Have a daughter under 10? Open SSY in her name — even a newborn qualifies", "tip_hi": "10 वर्ष से कम बेटी है? उसके नाम SSY खुलवाएँ — नवजात भी पात्र है"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ujjwala",
+    "name_en": "PM Ujjwala Yojana (Free LPG Connection)",
+    "name_hi": "प्रधानमंत्री उज्ज्वला योजना (मुफ्त एलपीजी कनेक्शन)",
+    "category_en": "Women & Social Welfare",
+    "category_hi": "महिला और सामाजिक कल्याण",
+    "ministry_en": "Ministry of Petroleum & Natural Gas",
+    "ministry_hi": "पेट्रोलियम एवं प्राकृतिक गैस मंत्रालय",
+    "description_en": "Free LPG connection to adult women from poor households, plus subsidy support on refills — replacing smoky chulhas with clean fuel.",
+    "description_hi": "गरीब परिवारों की वयस्क महिलाओं को मुफ्त एलपीजी कनेक्शन और रिफिल पर सब्सिडी — धुएँदार चूल्हों की जगह स्वच्छ ईंधन।",
+    "benefit_en": "Free LPG connection (deposit-free) + first refill & stove free + targeted refill subsidy",
+    "benefit_hi": "मुफ्त एलपीजी कनेक्शन (बिना जमा) + पहला रिफिल व चूल्हा मुफ्त + रिफिल पर लक्षित सब्सिडी",
+    "benefit_amount": 2500,
+    "apply_url": "https://www.pmuy.gov.in",
+    "apply_mode_en": "At your nearest LPG distributor with KYC form, or online at pmuy.gov.in",
+    "apply_mode_hi": "KYC फॉर्म के साथ नज़दीकी एलपीजी डिस्ट्रीब्यूटर पर, या pmuy.gov.in पर ऑनलाइन",
+    "popularity": 8,
+    "occupation_relevance": {"homemaker": 0.9, "farmer": 0.4, "self_employed": 0.4, "artisan": 0.4, "unemployed": 0.4, "street_vendor": 0.4},
+    "documents_en": ["Aadhaar Card (of the woman)", "BPL ration card / SECC proof / MGNREGA job card", "Bank account details", "Passport photo"],
+    "documents_hi": ["आधार कार्ड (महिला का)", "BPL राशन कार्ड / SECC प्रमाण / मनरेगा जॉब कार्ड", "बैंक खाता विवरण", "पासपोर्ट फोटो"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "gender", "op": "eq", "value": "female",
+           "desc_en": "The applicant is a woman (connection is issued in her name)", "desc_hi": "आवेदिका महिला हैं (कनेक्शन उन्हीं के नाम जारी होता है)",
+           "fail_en": "Ujjwala connections are issued to adult women only", "fail_hi": "उज्ज्वला कनेक्शन केवल वयस्क महिलाओं को जारी होता है",
+           "near_miss": {"tip_en": "An adult woman of the household (wife/mother/sister) can apply in her own name", "tip_hi": "परिवार की कोई वयस्क महिला (पत्नी/माँ/बहन) अपने नाम आवेदन कर सकती है"}},
+          {"field": "age", "op": "gte", "value": 18, "unit": "years",
+           "desc_en": "She is above 18 years of age", "desc_hi": "उनकी आयु 18 वर्ष से अधिक है",
+           "fail_en": "Applicant woman must be at least 18", "fail_hi": "आवेदिका महिला की आयु कम से कम 18 होनी चाहिए"},
+          {"field": "is_bpl", "op": "is_true",
+           "desc_en": "Your household is a poor/BPL household without an existing LPG connection", "desc_hi": "आपका परिवार गरीब/BPL है और घर में पहले से LPG कनेक्शन नहीं है",
+           "fail_en": "Ujjwala targets poor households (BPL/SECC-listed)", "fail_hi": "उज्ज्वला गरीब परिवारों (BPL/SECC सूची) के लिए है",
+           "near_miss": {"tip_en": "Check if your family is in the SECC-2011 list; even non-BPL poor households can get connections under expanded categories (MGNREGA/PM-KISAN families etc.)", "tip_hi": "देखें कि आपका परिवार SECC-2011 सूची में है; विस्तारित श्रेणियों (मनरेगा/पीएम-किसान परिवार आदि) में गैर-BPL गरीब परिवार भी कनेक्शन पा सकते हैं"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmmvy",
+    "name_en": "PM Matru Vandana Yojana (Maternity Benefit)",
+    "name_hi": "प्रधानमंत्री मातृ वंदना योजना (प्रसूति लाभ)",
+    "category_en": "Women & Health",
+    "category_hi": "महिला और स्वास्थ्य",
+    "ministry_en": "Ministry of Women & Child Development",
+    "ministry_hi": "महिला एवं बाल विकास मंत्रालय",
+    "description_en": "Cash incentive of ₹5,000 for pregnant & lactating women (first living child) for nutrition and partial wage compensation — direct to bank account.",
+    "description_hi": "गर्भवती व स्तनपान कराने वाली महिलाओं को (पहले जीवित बच्चे पर) पोषण और आंशिक मज़दूरी क्षतिपूर्ति हेतु ₹5,000 नकद — सीधे बैंक खाते में।",
+    "benefit_en": "₹5,000 in instalments (first child) + ₹6,000 additional if second child is a girl",
+    "benefit_hi": "किस्तों में ₹5,000 (पहला बच्चा) + दूसरी बच्ची बेटी होने पर ₹6,000 अतिरिक्त",
+    "benefit_amount": 5000,
+    "apply_url": "https://pmmvy.wcd.gov.in",
+    "apply_mode_en": "At your nearest Anganwadi centre / health facility, or online at pmmvy.wcd.gov.in",
+    "apply_mode_hi": "नज़दीकी आंगनवाड़ी केंद्र / स्वास्थ्य केंद्र पर, या pmmvy.wcd.gov.in पर ऑनलाइन",
+    "popularity": 7,
+    "occupation_relevance": {"homemaker": 0.9, "farmer": 0.4, "self_employed": 0.4, "artisan": 0.4, "street_vendor": 0.4, "unemployed": 0.4},
+    "documents_en": ["Aadhaar Card", "MCP card (pregnancy registration)", "Bank account with Aadhaar seeding", "Mobile number"],
+    "documents_hi": ["आधार कार्ड", "MCP कार्ड (गर्भावस्था पंजीकरण)", "आधार से जुड़ा बैंक खाता", "मोबाइल नंबर"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "gender", "op": "eq", "value": "female",
+           "desc_en": "The beneficiary is a woman", "desc_hi": "लाभार्थी महिला हैं",
+           "fail_en": "This benefit is for pregnant/lactating women", "fail_hi": "यह लाभ गर्भवती/स्तनपान कराने वाली महिलाओं के लिए है"},
+          {"field": "special", "op": "contains", "value": "pregnant_or_new_mother",
+           "desc_en": "You are currently pregnant or recently delivered (first child)", "desc_hi": "आप वर्तमान में गर्भवती हैं या हाल ही में प्रसव हुआ है (पहला बच्चा)",
+           "fail_en": "Benefit applies during pregnancy/lactation for the first living child", "fail_hi": "लाभ पहले जीवित बच्चे के लिए गर्भावस्था/स्तनपान अवधि में मिलता है"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmjay",
+    "name_en": "Ayushman Bharat – PM-JAY (Health Insurance)",
+    "name_hi": "आयुष्मान भारत – पीएम-जेएवाय (स्वास्थ्य बीमा)",
+    "category_en": "Health",
+    "category_hi": "स्वास्थ्य",
+    "ministry_en": "Ministry of Health & Family Welfare",
+    "ministry_hi": "स्वास्थ्य एवं परिवार कल्याण मंत्रालय",
+    "description_en": "Free health cover of ₹5 lakh per family per year for hospitalisation, for poor & vulnerable families — cashless treatment at 30,000+ hospitals.",
+    "description_hi": "गरीब व कमजोर परिवारों को प्रति परिवार ₹5 लाख प्रति वर्ष का मुफ्त अस्पताल भर्ती कवर — 30,000+ अस्पतालों में कैशलेस इलाज।",
+    "benefit_en": "₹5 lakh per family per year cashless hospitalisation cover — no premium, no cap on family size",
+    "benefit_hi": "प्रति परिवार ₹5 लाख प्रति वर्ष कैशलेस अस्पताल उपचार — कोई प्रीमियम नहीं, परिवार आकार की सीमा नहीं",
+    "benefit_amount": 500000,
+    "apply_url": "https://beneficiary.nha.gov.in",
+    "apply_mode_en": "Get your Ayushman Card at a CSC, empanelled hospital, or beneficiary.nha.gov.in",
+    "apply_mode_hi": "CSC, सूचीबद्ध अस्पताल या beneficiary.nha.gov.in से अपना आयुष्मान कार्ड बनवाएँ",
+    "popularity": 10,
+    "occupation_relevance": {},
+    "documents_en": ["Aadhaar Card", "Ration card / family ID", "Proof of SECC/BPL listing", "Mobile number"],
+    "documents_hi": ["आधार कार्ड", "राशन कार्ड / परिवार आईडी", "SECC/BPL सूची प्रमाण", "मोबाइल नंबर"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "is_bpl", "op": "is_true",
+           "desc_en": "Your household is BPL/deprivation-listed — the core PM-JAY target group", "desc_hi": "आपका परिवार BPL/वंचितता सूची में है — पीएम-जेएवाय का मुख्य लक्ष्य वर्ग",
+           "fail_en": "PM-JAY covers BPL/SECC-listed & formally identified vulnerable families", "fail_hi": "पीएम-जेएवाय BPL/SECC सूचीबद्ध व औपचारिक रूप से चिन्हित कमजोर परिवारों को कवर करता है",
+           "near_miss": {"tip_en": "Check eligibility at beneficiary.nha.gov.in — many states (e.g., Maharashtra's MJPJAY, Delhi Arogya) extend cover to all residents", "tip_hi": "beneficiary.nha.gov.in पर पात्रता जाँचें — कई राज्य (जैसे महाराष्ट्र का MJPJAY, दिल्ली आरोग्य) सभी निवासियों को कवर देते हैं"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "apy",
+    "name_en": "Atal Pension Yojana (Guaranteed Pension)",
+    "name_hi": "अटल पेंशन योजना (गारंटीड पेंशन)",
+    "category_en": "Pension / Social Security",
+    "category_hi": "पेंशन / सामाजिक सुरक्षा",
+    "ministry_en": "Ministry of Finance",
+    "ministry_hi": "वित्त मंत्रालय",
+    "description_en": "Guaranteed monthly pension of ₹1,000–₹5,000 after age 60 for unorganised-sector workers who contribute small amounts from age 18–40.",
+    "description_hi": "असंगठित क्षेत्र के श्रमिकों के लिए, जो 18–40 की आयु से छोटी राशि जमा करते हैं, 60 वर्ष के बाद ₹1,000–₹5,000 मासिक गारंटीड पेंशन।",
+    "benefit_en": "Guaranteed pension ₹1,000–₹5,000/month for life after 60; spouse continues; corpus returned to nominee",
+    "benefit_hi": "60 के बाद जीवनभर ₹1,000–₹5,000/माह गारंटीड पेंशन; जीवनसाथी को जारी; कोष नॉमिनी को वापस",
+    "benefit_amount": 60000,
+    "apply_url": "https://jansamarth.in",
+    "apply_mode_en": "At your bank branch (auto-debit from savings account)",
+    "apply_mode_hi": "अपनी बैंक शाखा में (बचत खाते से ऑटो-डेबिट)",
+    "popularity": 7,
+    "occupation_relevance": {"farmer": 0.7, "self_employed": 0.8, "artisan": 0.8, "street_vendor": 0.8, "unemployed": 0.5, "homemaker": 0.6, "business": 0.5},
+    "documents_en": ["Aadhaar Card", "Savings bank account", "Mobile number"],
+    "documents_hi": ["आधार कार्ड", "बचत बैंक खाता", "मोबाइल नंबर"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "age", "op": "between", "value": [18, 40], "unit": "years",
+           "label_en": "age", "label_hi": "आयु",
+           "desc_en": "Your age ({current}) is within the entry window of 18–40 years", "desc_hi": "आपकी आयु ({current}) 18–40 वर्ष की प्रवेश अवधि के भीतर है",
+           "fail_en": "Entry is allowed only between 18 and 40 years", "fail_hi": "प्रवेश केवल 18 से 40 वर्ष की आयु के बीच ही संभव है",
+           "near_miss": {"max_gap": 5, "tip_en": "Over 40? Look at PMVVY for seniors or open NPS (entry up to 70)", "tip_hi": "40 से अधिक? वरिष्ठ नागरिकों के लिए PMVVY देखें या NPS खोलें (70 तक प्रवेश)"}},
+          {"field": "has_bank_account", "op": "is_true",
+           "desc_en": "You have a savings bank account for auto-debit", "desc_hi": "ऑटो-डेबिट के लिए आपके पास बचत बैंक खाता है",
+           "fail_en": "A savings bank account is mandatory for APY", "fail_hi": "APY के लिए बचत बैंक खाता अनिवार्य है",
+           "near_miss": {"tip_en": "Open a free Jan Dhan account first — then enrol in APY the same day", "tip_hi": "पहले मुफ्त जन धन खाता खुलवाएँ — फिर उसी दिन APY में नामांकन कराएँ"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jandhan",
+    "name_en": "PM Jan Dhan Yojana (Zero-Balance Bank Account)",
+    "name_hi": "पीएम जन धन योजना (शून्य-शेष बैंक खाता)",
+    "category_en": "Financial Inclusion",
+    "category_hi": "वित्तीय समावेशन",
+    "ministry_en": "Ministry of Finance",
+    "ministry_hi": "वित्त मंत्रालय",
+    "description_en": "Zero-balance bank account with RuPay debit card, ₹2 lakh accident cover, and ₹10,000 overdraft — the gateway to every DBT scheme.",
+    "description_hi": "रूपे डेबिट कार्ड, ₹2 लाख दुर्घटना कवर और ₹10,000 ओवरड्राफ्ट के साथ शून्य-शेष बैंक खाता — हर DBT योजना का द्वार।",
+    "benefit_en": "Free RuPay card + ₹2 lakh accident insurance + ₹10,000 overdraft + direct benefit transfers (DBT)",
+    "benefit_hi": "मुफ्त रूपे कार्ड + ₹2 लाख दुर्घटना बीमा + ₹10,000 ओवरड्राफ्ट + सीधे लाभ अंतरण (DBT)",
+    "benefit_amount": 12000,
+    "apply_url": "https://www.pmjdy.gov.in",
+    "apply_mode_en": "At any bank branch or Bank Mitra outlet with Aadhaar",
+    "apply_mode_hi": "आधार के साथ किसी भी बैंक शाखा या बैंक मित्र आउटलेट पर",
+    "popularity": 9,
+    "occupation_relevance": {},
+    "documents_en": ["Aadhaar Card (or any OVD)", "Mobile number", "Passport photo (if no Aadhaar e-KYC)"],
+    "documents_hi": ["आधार कार्ड (या कोई OVD)", "मोबाइल नंबर", "पासपोर्ट फोटो (यदि आधार e-KYC न हो)"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "has_bank_account", "op": "is_false",
+           "desc_en": "You do not have a bank account yet — this scheme opens your first one, free", "desc_hi": "अभी आपका बैंक खाता नहीं है — यह योजना आपका पहला खाता मुफ्त खोलती है",
+           "fail_en": "You already have a bank account (that account can receive DBT too)", "fail_hi": "आपके पास पहले से बैंक खाता है (वह खाता भी DBT प्राप्त कर सकता है)"},
+          {"field": "age", "op": "gte", "value": 10, "unit": "years",
+           "desc_en": "You are above 10 years of age", "desc_hi": "आपकी आयु 10 वर्ष से अधिक है",
+           "fail_en": "Minimum age 10 for an individual account", "fail_hi": "व्यक्तिगत खाते के लिए न्यूनतम आयु 10 वर्ष"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmjjby",
+    "name_en": "PM Jeevan Jyoti Bima Yojana (Life Insurance ₹436/yr)",
+    "name_hi": "पीएम जीवन ज्योति बीमा योजना (जीवन बीमा ₹436/वर्ष)",
+    "category_en": "Insurance",
+    "category_hi": "बीमा",
+    "ministry_en": "Ministry of Finance",
+    "ministry_hi": "वित्त मंत्रालय",
+    "description_en": "₹2 lakh life insurance cover for just ₹436 per year, auto-debited from your bank account. Renewable every year.",
+    "description_hi": "केवल ₹436 प्रति वर्ष में ₹2 लाख का जीवन बीमा कवर, आपके बैंक खाते से ऑटो-डेबिट। हर वर्ष नवीकरणीय।",
+    "benefit_en": "₹2,00,000 life cover to nominee at only ₹436/year (≈ ₹1.19/day)",
+    "benefit_hi": "मात्र ₹436/वर्ष (≈ ₹1.19/दिन) में नॉमिनी को ₹2,00,000 जीवन कवर",
+    "benefit_amount": 200000,
+    "apply_url": "https://jansamarth.in",
+    "apply_mode_en": "Through your bank's net-banking or branch (one form, auto-debit consent)",
+    "apply_mode_hi": "अपने बैंक के नेट-बैंकिंग या शाखा के माध्यम से (एक फॉर्म, ऑटो-डेबिट सहमति)",
+    "popularity": 7,
+    "occupation_relevance": {},
+    "documents_en": ["Aadhaar Card (KYC)", "Savings bank account", "Nominee details"],
+    "documents_hi": ["आधार कार्ड (KYC)", "बचत बैंक खाता", "नॉमिनी विवरण"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "age", "op": "between", "value": [18, 50], "unit": "years",
+           "label_en": "age", "label_hi": "आयु",
+           "desc_en": "Your age ({current}) is within the 18–50 entry window", "desc_hi": "आपकी आयु ({current}) 18–50 की प्रवेश अवधि के भीतर है",
+           "fail_en": "Entry age for PMJJBY is 18–50 years", "fail_hi": "PMJJBY की प्रवेश आयु 18–50 वर्ष है"},
+          {"field": "has_bank_account", "op": "is_true",
+           "desc_en": "You have a bank account for premium auto-debit", "desc_hi": "प्रीमियम ऑटो-डेबिट के लिए आपके पास बैंक खाता है",
+           "fail_en": "A bank account is required for auto-debit of premium", "fail_hi": "प्रीमियम ऑटो-डेबिट के लिए बैंक खाता आवश्यक है",
+           "near_miss": {"tip_en": "Open a free Jan Dhan account first, then enrol — same day, one bank visit", "tip_hi": "पहले मुफ्त जन धन खाता खुलवाएँ, फिर नामांकन कराएँ — उसी दिन, एक बैंक विज़िट में"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pmsby",
+    "name_en": "PM Suraksha Bima Yojana (Accident Insurance ₹20/yr)",
+    "name_hi": "पीएम सुरक्षा बीमा योजना (दुर्घटना बीमा ₹20/वर्ष)",
+    "category_en": "Insurance",
+    "category_hi": "बीमा",
+    "ministry_en": "Ministry of Finance",
+    "ministry_hi": "वित्त मंत्रालय",
+    "description_en": "₹2 lakh accidental death & disability cover for just ₹20 per year — the cheapest insurance in the world, auto-debited yearly.",
+    "description_hi": "मात्र ₹20 प्रति वर्ष में ₹2 लाख का आकस्मिक मृत्यु व विकलांगता कवर — दुनिया का सबसे सस्ता बीमा, वार्षिक ऑटो-डेबिट।",
+    "benefit_en": "₹2,00,000 accidental death / full-disability cover + ₹1,00,000 partial disability at ₹20/year",
+    "benefit_hi": "₹20/वर्ष में ₹2,00,000 आकस्मिक मृत्यु / पूर्ण विकलांगता कवर + ₹1,00,000 आंशिक विकलांगता",
+    "benefit_amount": 200000,
+    "apply_url": "https://jansamarth.in",
+    "apply_mode_en": "Through your bank's net-banking or branch (auto-debit consent)",
+    "apply_mode_hi": "अपने बैंक के नेट-बैंकिंग या शाखा के माध्यम से (ऑटो-डेबिट सहमति)",
+    "popularity": 7,
+    "occupation_relevance": {},
+    "documents_en": ["Aadhaar Card (KYC)", "Savings bank account", "Nominee details"],
+    "documents_hi": ["आधार कार्ड (KYC)", "बचत बैंक खाता", "नॉमिनी विवरण"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "age", "op": "between", "value": [18, 70], "unit": "years",
+           "label_en": "age", "label_hi": "आयु",
+           "desc_en": "Your age ({current}) is within the 18–70 window", "desc_hi": "आपकी आयु ({current}) 18–70 की अवधि के भीतर है",
+           "fail_en": "PMSBY covers ages 18–70 only", "fail_hi": "PMSBY केवल 18–70 आयु को कवर करता है"},
+          {"field": "has_bank_account", "op": "is_true",
+           "desc_en": "You have a bank account for premium auto-debit", "desc_hi": "प्रीमियम ऑटो-डेबिट के लिए आपके पास बैंक खाता है",
+           "fail_en": "A bank account is required for auto-debit of premium", "fail_hi": "प्रीमियम ऑटो-डेबिट के लिए बैंक खाता आवश्यक है",
+           "near_miss": {"tip_en": "Open a free Jan Dhan account first, then enrol — same day", "tip_hi": "पहले मुफ्त जन धन खाता खुलवाएँ, फिर नामांकन कराएँ — उसी दिन"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ddu_gky",
+    "name_en": "DDU-GKY (Rural Youth Skill Training)",
+    "name_hi": "डीडीयू-जीकेवाय (ग्रामीण युवा कौशल प्रशिक्षण)",
+    "category_en": "Skill Development",
+    "category_hi": "कौशल विकास",
+    "ministry_en": "Ministry of Rural Development",
+    "ministry_hi": "ग्रामीण विकास मंत्रालय",
+    "description_en": "Completely FREE residential skill training (3–12 months) with guaranteed placement assistance for rural youth from poor families.",
+    "description_hi": "गरीब परिवारों के ग्रामीण युवाओं के लिए पूरी तरह मुफ्त आवासीय कौशल प्रशिक्षण (3–12 महीने) तथा प्लेसमेंट सहायता की गारंटी।",
+    "benefit_en": "Free training + food + stay + uniform + placement support (worth ₹1 lakh+) for 576+ job roles",
+    "benefit_hi": "576+ जॉब रोल्स के लिए मुफ्त प्रशिक्षण + भोजन + आवास + यूनिफॉर्म + प्लेसमेंट सहायता (₹1 लाख+ मूल्य)",
+    "benefit_amount": 100000,
+    "apply_url": "https://ddugky.gov.in",
+    "apply_mode_en": "Apply at your Gram Panchayat, Block office, or via the Kaushal Panjee app",
+    "apply_mode_hi": "अपनी ग्राम पंचायत, ब्लॉक कार्यालय या कौशल पंजी ऐप से आवेदन करें",
+    "popularity": 6,
+    "occupation_relevance": {"unemployed": 1.0, "student": 0.5, "farmer": 0.4, "self_employed": 0.3},
+    "documents_en": ["Aadhaar Card", "BPL/MGNREGA/SHG household proof", "Education certificates", "Passport photos"],
+    "documents_hi": ["आधार कार्ड", "BPL/मनरेगा/SHG परिवार प्रमाण", "शिक्षा प्रमाण पत्र", "पासपोर्ट फोटो"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "area_type", "op": "eq", "value": "rural",
+           "desc_en": "You are from a rural area", "desc_hi": "आप ग्रामीण क्षेत्र से हैं",
+           "fail_en": "DDU-GKY is for rural youth only", "fail_hi": "DDU-GKY केवल ग्रामीण युवाओं के लिए है"},
+          {"field": "age", "op": "between", "value": [15, 35], "unit": "years",
+           "label_en": "age", "label_hi": "आयु",
+           "desc_en": "Your age ({current}) is within 15–35 years", "desc_hi": "आपकी आयु ({current}) 15–35 वर्ष के भीतर है",
+           "fail_en": "Only youth aged 15–35 can enrol", "fail_hi": "केवल 15–35 आयु के युवा ही दाखिला ले सकते हैं",
+           "near_miss": {"max_gap": 3, "tip_en": "Slightly over 35? Check PMKVY (Pradhan Mantri Kaushal Vikas Yojana) — no rural restriction", "tip_hi": "35 से थोड़ा अधिक? PMKVY (प्रधानमंत्री कौशल विकास योजना) देखें — कोई ग्रामीण सीमा नहीं"}}
+        ]
+      },
+      {
+        "logic": "any",
+        "rules": [
+          {"field": "is_bpl", "op": "is_true",
+           "desc_en": "Your household is BPL — a priority category", "desc_hi": "आपका परिवार BPL है — प्राथमिकता श्रेणी",
+           "fail_en": "Not BPL-listed", "fail_hi": "BPL सूची में नहीं"},
+          {"field": "annual_income", "op": "lte", "value": 150000, "unit": "inr",
+           "label_en": "family income", "label_hi": "पारिवारिक आय",
+           "desc_en": "Your family income ({current}) shows economic need", "desc_hi": "आपकी पारिवारिक आय ({current}) आर्थिक आवश्यकता दर्शाती है",
+           "fail_en": "Family income above the poor-household threshold", "fail_hi": "पारिवारिक आय गरीब-परिवार सीमा से अधिक",
+           "near_miss": {"tip_en": "MGNREGA job-card, SHG-membership or PDS families also qualify directly", "tip_hi": "मनरेगा जॉब कार्ड, SHG सदस्यता या PDS परिवार भी सीधे पात्र हैं"}}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nrlm",
+    "name_en": "DAY-NRLM (Rural Women's Self-Help Groups)",
+    "name_hi": "डे-एनआरएलएम (ग्रामीण महिला स्वयं सहायता समूह)",
+    "category_en": "Livelihood / Women",
+    "category_hi": "आजीविका / महिला",
+    "ministry_en": "Ministry of Rural Development",
+    "ministry_hi": "ग्रामीण विकास मंत्रालय",
+    "description_en": "Organises rural women into Self-Help Groups (SHGs) giving access to revolving funds, low-interest bank loans and livelihood support.",
+    "description_hi": "ग्रामीण महिलाओं को स्वयं सहायता समूहों (SHG) में संगठित कर रिवॉल्विंग फंड, कम ब्याज वाले बैंक लोन और आजीविका सहायता देता है।",
+    "benefit_en": "Revolving fund ₹15,000–₹30,000 per SHG + bank loans at 7% (3% cashback on prompt repayment) + enterprise support",
+    "benefit_hi": "प्रति SHG ₹15,000–₹30,000 रिवॉल्विंग फंड + 7% पर बैंक लोन (समय पर भुगतान पर 3% कैशबैक) + उद्यम सहायता",
+    "benefit_amount": 300000,
+    "apply_url": "https://nrlm.gov.in",
+    "apply_mode_en": "Contact your Gram Panchayat / Block Livelihood Mission (CLF) office to join an SHG",
+    "apply_mode_hi": "SHG में शामिल होने के लिए अपनी ग्राम पंचायत / ब्लॉक आजीविका मिशन (CLF) कार्यालय से संपर्क करें",
+    "popularity": 6,
+    "occupation_relevance": {"homemaker": 1.0, "farmer": 0.5, "artisan": 0.6, "self_employed": 0.6, "unemployed": 0.6, "street_vendor": 0.4},
+    "documents_en": ["Aadhaar Card", "BPL/SECC or vulnerability proof", "Bank account (for SHG formation)", "Passport photos"],
+    "documents_hi": ["आधार कार्ड", "BPL/SECC या वंचितता प्रमाण", "बैंक खाता (SHG गठन के लिए)", "पासपोर्ट फोटो"],
+    "rule_groups": [
+      {
+        "logic": "all",
+        "rules": [
+          {"field": "area_type", "op": "eq", "value": "rural",
+           "desc_en": "You are from a rural area", "desc_hi": "आप ग्रामीण क्षेत्र से हैं",
+           "fail_en": "DAY-NRLM covers rural households (urban version is DAY-NULM)", "fail_hi": "DAY-NRLM ग्रामीण परिवारों को कवर करता है (शहरी संस्करण DAY-NULM है)",
+           "near_miss": {"tip_en": "Urban? DAY-NULM runs the same SHG model in cities — contact your municipal corporation", "tip_hi": "शहरी हैं? DAY-NULM शहरों में भी यही SHG मॉडल चलाता है — अपने नगर निगम से संपर्क करें"}},
+          {"field": "gender", "op": "eq", "value": "female",
+           "desc_en": "SHGs under NRLM are formed by women", "desc_hi": "NRLM के तहत SHG महिलाओं द्वारा बनाए जाते हैं",
+           "fail_en": "NRLM SHGs are women-only groups", "fail_hi": "NRLM SHG केवल महिलाओं के समूह हैं",
+           "near_miss": {"tip_en": "A woman in the family can join an SHG and access loans for the whole household", "tip_hi": "परिवार की कोई महिला SHG में शामिल होकर पूरे घर के लिए लोन प्राप्त कर सकती है"}}
+        ]
+      },
+      {
+        "logic": "any",
+        "rules": [
+          {"field": "is_bpl", "op": "is_true",
+           "desc_en": "Your household is BPL — NRLM's priority group", "desc_hi": "आपका परिवार BPL है — NRLM का प्राथमिकता वर्ग",
+           "fail_en": "Not BPL-listed", "fail_hi": "BPL सूची में नहीं"},
+          {"field": "annual_income", "op": "lte", "value": 150000, "unit": "inr",
+           "desc_en": "Your household income ({current}) fits the poor/vulnerable criterion", "desc_hi": "आपकी पारिवारिक आय ({current}) गरीब/कमजोर मानदंड में आती है",
+           "fail_en": "Household income above the vulnerable threshold", "fail_hi": "पारिवारिक आय कमजोर-वर्ग सीमा से अधिक"}
+        ]
+      }
+    ]
+  }
+]

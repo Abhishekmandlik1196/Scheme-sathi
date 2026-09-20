@@ -1,0 +1,17 @@
+# Render.com one-click deploy blueprint (free tier)
+# https://render.com → New + → Blueprint → connect this repo — done.
+services:
+  - type: web
+    name: scheme-saathi
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      # OPTIONAL — add your Gemini key in the Render dashboard after deploy.
+      # Without it the app runs fully in offline mode (by design).
+      - key: GEMINI_API_KEY
+        sync: false
